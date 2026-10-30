@@ -171,7 +171,7 @@ src/
     site.ts             name, email, nav, capabilities, timeline, toolchain
     projects.ts         all project content
 public/
-  images/  files/  og.png  favicon.svg  CNAME
+  images/  files/  og.png  favicon.svg
 ```
 
 ## Content provenance
