@@ -63,11 +63,32 @@ export const viewport: Viewport = {
 
 const themeScript = `(function(){try{var s=localStorage.getItem("theme");var t=s||(window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.dataset.theme=t;document.documentElement.classList.add("js")}catch(e){document.documentElement.classList.add("js")}})();`;
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ntuthuko Mdunge",
+  alternateName: site.name,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  jobTitle: "Electrical and Computer Engineering student",
+  affiliation: { "@type": "CollegeOrUniversity", name: site.institution },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Durban",
+    addressCountry: "ZA",
+  },
+  sameAs: [site.github],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en-ZA" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
       </head>
       <body id="top">
         <a className="skip-link" href="#main">

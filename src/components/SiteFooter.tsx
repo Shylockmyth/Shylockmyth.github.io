@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
-import { ArrowUpRight } from "./icons";
+import { ArrowUpRight, GitHubIcon } from "./icons";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -56,6 +56,17 @@ export function SiteFooter() {
               <li>
                 <a className="footer__link" href={`mailto:${site.email}`}>
                   {site.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="footer__link"
+                  href={site.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+                >
+                  <GitHubIcon style={{ width: 12, height: 12 }} /> GitHub / {site.githubHandle}
                 </a>
               </li>
               <li className="footer__link" style={{ color: "var(--dim)" }}>

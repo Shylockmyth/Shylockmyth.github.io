@@ -39,7 +39,7 @@ These are real gaps, not styling details. Search the codebase for each.
 | What | Where | Current value |
 | --- | --- | --- |
 | Email address | `src/lib/site.ts` → `email` | `hello@ntuthukomdunge.com` (placeholder — the mailbox must exist) |
-| Social / GitHub / LinkedIn links | Footer and contact page have no social links yet. Add them in `src/components/SiteFooter.tsx` (Elsewhere column) or tell me and I'll wire them. | none |
+| Social links | GitHub profile is wired from `src/lib/site.ts` (`github`, `githubHandle`) into the footer, contact page, about CTA and Person schema. LinkedIn is not added. | https://github.com/Shylockmyth |
 | CV download | No CV file was in the project folder. Drop a PDF into `public/files/` and add a link next to the hero buttons in `src/app/page.tsx`. | none |
 | Rover role | `src/lib/projects.ts` → Cars4Mars `role` | "Power and electronics, team contributor" — confirm or correct |
 | Studying year | `src/lib/site.ts` / about page | Deliberately says "student", not "final year" |
@@ -126,20 +126,26 @@ The static export puts it in `<head>`, which is why the scores above are from `o
 
 ## Deploy
 
-The `out/` folder is the site. `public/CNAME` already contains `ntuthukomdunge.com`.
+Live on GitHub Pages from this repository:
 
-**Vercel / Netlify / Cloudflare Pages**
+| What | Value |
+| --- | --- |
+| Source branch | `main` |
+| Workflow | `.github/workflows/deploy.yml` (`npm ci` → `next build` → upload `out/`) |
+| Pages URL | https://shylockmyth.github.io/ |
+| Custom domain | https://ntuthukomdunge.is-a.dev (`CNAME` → `shylockmyth.github.io`) |
+
+`NEXT_PUBLIC_SITE_URL` sets the canonical origin (footer domain, sitemap, robots, Open Graph).
+It defaults to `https://ntuthukomdunge.com`; the Pages workflow builds with
+`https://ntuthukomdunge.is-a.dev`.
+
+**Other hosts**
 - Build command: `npm run build`
-- Output directory: `out`
-- Add `ntuthukomdunge.com` as a custom domain, then point the DNS records the host gives you.
+- Output directory: `out` (plain static bundle; upload anywhere)
 
-**GitHub Pages**
-- Push the repo, run `npm run build`, publish the `out` folder to a `gh-pages` branch.
-- The included `CNAME` sets the custom domain.
+**Custom domain**
+- Add the domain under Settings → Pages, then point a `CNAME` record at `shylockmyth.github.io`.
 - For an apex domain, add the four GitHub Pages `A` records plus a `CNAME` record for `www`.
-
-**Any static host / cPanel**
-- Upload the contents of `out/` to the web root.
 
 ---
 

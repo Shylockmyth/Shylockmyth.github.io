@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { CopyEmail } from "@/components/CopyEmail";
-import { ArrowUpRight, MailIcon } from "@/components/icons";
+import { ArrowUpRight, GitHubIcon, MailIcon } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -41,6 +41,14 @@ export default function ContactPage() {
                   <a className="copy-btn" href={`mailto:${site.email}`}>
                     <MailIcon /> Compose
                   </a>
+                  <a
+                    className="copy-btn"
+                    href={site.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <GitHubIcon /> GitHub
+                  </a>
                 </div>
               </div>
             </div>
@@ -49,6 +57,19 @@ export default function ContactPage() {
               <div className="contact-fact">
                 <dt>Location</dt>
                 <dd>{site.location}</dd>
+              </div>
+              <div className="contact-fact">
+                <dt>GitHub</dt>
+                <dd>
+                  <a
+                    className="footer__link"
+                    href={site.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    @{site.githubHandle}
+                  </a>
+                </dd>
               </div>
               <div className="contact-fact">
                 <dt>Timezone</dt>

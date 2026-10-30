@@ -198,6 +198,14 @@ export default function AboutPage() {
               <a href={`mailto:${site.email}`} className="cta__mail">
                 {site.email}
               </a>
+              <a
+                href={site.github}
+                className="cta__mail"
+                target="_blank"
+                rel="noreferrer"
+              >
+                github.com/{site.githubHandle}
+              </a>
             </div>
           </div>
         </div>

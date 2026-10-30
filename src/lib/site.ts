@@ -9,6 +9,8 @@ export const site = {
   domain: siteUrl.replace(/^https?:\/\//, ""),
   url: siteUrl,
   email: "hello@ntuthukomdunge.com",
+  github: "https://github.com/Shylockmyth",
+  githubHandle: "Shylockmyth",
   location: "Durban, South Africa",
   timeZone: "Africa/Johannesburg",
   discipline: "Electrical & Computer Engineering",
