@@ -92,10 +92,10 @@ export const capabilities = [
 export const trackRecord = [
   {
     period: "2026",
-    title: "SATNAC Industry Solutions Challenge winner",
+    title: "SATNAC winner · Innovator of the Year",
     org: "Telkom topic · SignalMyth",
     detail:
-      "An XGBoost surrogate for LTE RSRP coverage, validated on real Durban terrain at 2.63 dB RMSE and about 18x faster than the reference model.",
+      "Won the Telkom topic and was named Innovator of the Year for the best solution: an XGBoost surrogate for LTE RSRP coverage, validated on real Durban terrain at 2.63 dB RMSE and about 18x faster than the reference model.",
   },
   {
     period: "2026",

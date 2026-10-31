@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Awards",
-  description: `Competitions and recognition: SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic, BRICS 2025 Bronze, a JCI hackathon second place and an FNB App Academy certificate.`,
+  description: `Competitions and recognition: SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic and Innovator of the Year, BRICS 2025 Bronze, a JCI hackathon second place and an FNB App Academy certificate.`,
   alternates: { canonical: "/awards/" },
 };
 
@@ -18,7 +18,7 @@ type Award = {
   org: string;
   body: string;
   facts: { label: string; value: string }[];
-  photos: { src: string; alt: string; width: number; height: number }[];
+  photos: { src: string; alt: string; width: number; height: number; wide?: boolean }[];
   certificate?: { src: string; alt: string; width: number; height: number };
 };
 
@@ -26,21 +26,23 @@ const awards: Award[] = [
   {
     index: "01",
     year: "2026",
-    place: "Winner",
+    place: "Winner · Innovator of the Year",
     title: "SATNAC Industry Solutions Challenge",
     org: "Telkom topic · SignalMyth",
     body:
-      "The challenge asked for a faster way to predict LTE coverage than a seven-to-nine-day ray-tracing run. Our entry, SignalMyth, is an XGBoost surrogate trained on real SRTM terrain and ESA WorldCover clutter for Durban. On a held-out set it reached 2.63 dB RMSE and an R² of 0.958, at roughly 18× the speed of the reference model.",
+      "The challenge asked for a faster way to predict LTE coverage than a seven-to-nine-day ray-tracing run. Our entry, SignalMyth, is an XGBoost surrogate trained on real SRTM terrain and ESA WorldCover clutter for Durban. On a held-out set it reached 2.63 dB RMSE and an R² of 0.958, at roughly 18× the speed of the reference model. It won the Telkom topic and was also named Innovator of the Year, the award given to the best solution in the challenge.",
     facts: [
       { label: "Result", value: "Winner, Telkom topic" },
+      { label: "Special award", value: "Innovator of the Year" },
       { label: "Event", value: "SATNAC 2026" },
       { label: "Entry", value: "SignalMyth" },
-      { label: "Approach", value: "ML surrogate model" },
     ],
     photos: [
-      { src: "/images/awards/satnac-1.jpg", alt: "SATNAC 2026 team on stage with the award", width: 1400, height: 933 },
-      { src: "/images/awards/satnac-2.jpg", alt: "SATNAC 2026 Industry Solutions Challenge presentation", width: 1400, height: 933 },
-      { src: "/images/awards/satnac-3.jpg", alt: "SATNAC 2026 team photograph", width: 1400, height: 933 },
+      { src: "/images/awards/satnac-1.jpg", alt: "SATNAC 2026 team on stage with the award", width: 1400, height: 933, wide: true },
+      { src: "/images/awards/satnac-2.jpg", alt: "SATNAC 2026 Industry Solutions Challenge presentation", width: 1400, height: 933, wide: true },
+      { src: "/images/awards/satnac-3.jpg", alt: "SATNAC 2026 team photograph", width: 1400, height: 933, wide: true },
+      { src: "/images/awards/satnac-4.jpg", alt: "SATNAC 2026 Innovator of the Year award photograph", width: 1600, height: 1067, wide: true },
+      { src: "/images/awards/satnac-5.jpg", alt: "SATNAC 2026 team with the Innovator of the Year award", width: 1600, height: 1067, wide: true },
     ],
   },
   {
@@ -59,7 +61,7 @@ const awards: Award[] = [
     ],
     photos: [
       { src: "/images/awards/brics-1.jpg", alt: "BRICS 2025 competition team photograph", width: 1400, height: 1867 },
-      { src: "/images/awards/brics-2.jpg", alt: "BRICS 2025 exhibition stand", width: 1400, height: 1050 },
+      { src: "/images/awards/brics-2.jpg", alt: "BRICS 2025 exhibition stand", width: 1400, height: 1050, wide: true },
       { src: "/images/awards/brics-3.jpg", alt: "BRICS 2025 award moment", width: 960, height: 1280 },
     ],
     certificate: {
@@ -128,7 +130,10 @@ export default function AwardsPage() {
               <b>04</b> entries
             </span>
             <span>
-              <b>1</b> win · <b>2</b> podium places
+              <b>1</b> win · <b>1</b> special award
+            </span>
+            <span>
+              <b>2</b> podium places
             </span>
             <span>
               <b>2026</b> latest
@@ -167,7 +172,7 @@ export default function AwardsPage() {
 
                 <div className="award__media">
                   {award.photos.map((photo) => (
-                    <figure key={photo.src}>
+                    <figure key={photo.src} className={photo.wide ? "wide" : undefined}>
                       <Image
                         src={photo.src}
                         alt={photo.alt}

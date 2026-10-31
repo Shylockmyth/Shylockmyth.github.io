@@ -91,7 +91,7 @@ export default function HomePage() {
                 </div>
                 <div className="readout__row">
                   <dt>Latest</dt>
-                  <dd>SATNAC 2026 winner</dd>
+                  <dd>SATNAC · Innovator of the Year</dd>
                 </div>
                 <div className="readout__row">
                   <dt>Status</dt>
@@ -195,8 +195,9 @@ export default function HomePage() {
               <p className="split-card__k">02 / Competitions</p>
               <h2 className="split-card__title">Awards</h2>
               <p className="split-card__text">
-                SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic, BRICS 2025
-                Bronze for Dr Kiosk, a JCI hackathon second place and an FNB App Academy certificate.
+                SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic and
+                Innovator of the Year for the best solution, BRICS 2025 Bronze for Dr Kiosk, a JCI
+                hackathon second place and an FNB App Academy certificate.
               </p>
               <span className="split-card__cta">
                 See the awards <ArrowRight />

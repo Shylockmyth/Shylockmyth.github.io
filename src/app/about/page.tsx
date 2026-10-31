@@ -53,7 +53,8 @@ export default function AboutPage() {
                   I also work with teams. On the Cars4Mars rover I contributed to the power and
                   electronics, and with Team Still Lazy I co-authored the CityGo! public transport
                   concept. SignalMyth, an XGBoost surrogate for LTE coverage, won the SATNAC 2026
-                  Industry Solutions Challenge under the Telkom topic. The common thread is not one
+                  Industry Solutions Challenge under the Telkom topic and was named Innovator of the
+                  Year for the best solution. The common thread is not one
                   tool or one language — it is deciding what has to be true for the system to work,
                   and then proving it.
                 </p>

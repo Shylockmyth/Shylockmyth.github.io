@@ -2857,6 +2857,11 @@ html[data-theme="light"] .theme-toggle .sun {
   aspect-ratio: 16 / 10;
 }
 
+.award__media figure.wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 2;
+}
+
 .award__media .award__certificate {
   grid-column: 1 / -1;
   aspect-ratio: auto;

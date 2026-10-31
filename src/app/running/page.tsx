@@ -49,6 +49,7 @@ const races: Race[] = [
       "A community race with a cause behind it. Smaller field, harder course, and the one where the last two kilometres are mostly mental.",
     photos: [
       { src: "/images/running/ntenga-1.jpg", alt: "Ntenga Foundation 10 km race photograph", width: 1400, height: 1859 },
+      { src: "/images/running/ntenga-medal.jpg", alt: "Ntenga Foundation 10 km medal", width: 1204, height: 1600 },
     ],
   },
   {
