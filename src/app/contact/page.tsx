@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/ContactForm";
-import { CopyEmail } from "@/components/CopyEmail";
-import { ArrowUpRight, GitHubIcon, MailIcon } from "@/components/icons";
+import { ArrowUpRight, GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${site.name} for graduate roles, collaborations or technical questions. Based in ${site.location}.`,
+  description: `Contact ${site.name} on LinkedIn for project help, collaborations or technical questions. Based in ${site.location}.`,
   alternates: { canonical: "/contact/" },
 };
 
@@ -15,12 +13,11 @@ export default function ContactPage() {
     <div className="page">
       <div className="wrap">
         <header style={{ marginBottom: "clamp(30px, 4vw, 48px)", maxWidth: "62ch" }}>
-          <p className="eyebrow page__eyebrow">03 / Contact</p>
+          <p className="eyebrow page__eyebrow">05 / Contact</p>
           <h1 className="page__title">Get in touch.</h1>
           <p className="page__lede">
-            The fastest route is email. Tell me what you are building, the constraint you are stuck
-            on, or the role you have in mind, and I will reply with something useful rather than a
-            brochure.
+            LinkedIn is the one place to reach me. Tell me what you are building and the constraint
+            you are stuck on, and I will reply if I can help.
           </p>
         </header>
 
@@ -29,17 +26,26 @@ export default function ContactPage() {
             <div className="mailbox">
               <div className="mailbox__bar">
                 <span>Direct line</span>
-                <span aria-hidden="true">SMTP / 01</span>
+                <span aria-hidden="true">LINKEDIN / 01</span>
               </div>
               <div className="mailbox__body">
-                <p className="mailbox__label">Email</p>
-                <a className="mailbox__address" href={`mailto:${site.email}`}>
-                  {site.email}
+                <p className="mailbox__label">LinkedIn</p>
+                <a
+                  className="mailbox__address"
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  /in/{site.linkedinHandle}
                 </a>
                 <div className="mailbox__actions">
-                  <CopyEmail email={site.email} />
-                  <a className="copy-btn" href={`mailto:${site.email}`}>
-                    <MailIcon /> Compose
+                  <a
+                    className="copy-btn"
+                    href={site.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <LinkedInIcon /> Message
                   </a>
                   <a
                     className="copy-btn"
@@ -57,6 +63,19 @@ export default function ContactPage() {
               <div className="contact-fact">
                 <dt>Location</dt>
                 <dd>{site.location}</dd>
+              </div>
+              <div className="contact-fact">
+                <dt>LinkedIn</dt>
+                <dd>
+                  <a
+                    className="footer__link"
+                    href={site.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ntuthuko Mdunge
+                  </a>
+                </dd>
               </div>
               <div className="contact-fact">
                 <dt>GitHub</dt>
@@ -81,31 +100,64 @@ export default function ContactPage() {
               </div>
               <div className="contact-fact">
                 <dt>Best for</dt>
-                <dd>Graduate roles · hardware · software</dd>
+                <dd>Project help · electronics · software</dd>
               </div>
             </dl>
+          </div>
 
-            <div className="panel" style={{ marginTop: 20 }}>
+          <div>
+            <div className="panel">
               <p className="panel__title">
                 What helps <span aria-hidden="true">INFO</span>
               </p>
-              <div className="panel__body" style={{ display: "grid", gap: 12 }}>
+              <div className="panel__body" style={{ display: "grid", gap: 14 }}>
                 <p>
-                  For a role: the discipline, the team, and the kind of systems they build. For a
-                  project: the constraint, the deadline, and what already exists.
+                  I am still studying, so I am not taking on paid work or a full-time role. I am
+                  glad to help with a student or personal project when I have the time.
+                </p>
+                <p>
+                  A useful first message says what the project is, what it has to do, what you have
+                  already built, and where it is failing. A photo of the circuit or the error message
+                  is worth more than a paragraph.
                 </p>
                 <a
-                  href="/files/hybrid-feasibility-study.docx"
                   className="footer__link"
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
                   style={{ display: "inline-flex", gap: 6, alignItems: "center" }}
                 >
-                  Sample technical report (DOCX, 1 MB) <ArrowUpRight />
+                  Message me on LinkedIn <ArrowUpRight />
+                </a>
+              </div>
+            </div>
+
+            <div className="panel" style={{ marginTop: 20 }}>
+              <p className="panel__title">
+                Elsewhere <span aria-hidden="true">02</span>
+              </p>
+              <div className="panel__body" style={{ display: "grid", gap: 10 }}>
+                <a
+                  className="footer__link"
+                  href={site.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ display: "inline-flex", gap: 6, alignItems: "center" }}
+                >
+                  <GitHubIcon style={{ width: 12, height: 12 }} /> github.com/{site.githubHandle}
+                </a>
+                <a className="footer__link" href="/work/">
+                  Project case studies
+                </a>
+                <a className="footer__link" href="/awards/">
+                  Awards and competitions
+                </a>
+                <a className="footer__link" href="/running/">
+                  Social running
                 </a>
               </div>
             </div>
           </div>
-
-          <ContactForm email={site.email} />
         </div>
       </div>
     </div>

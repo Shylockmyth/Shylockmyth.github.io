@@ -25,9 +25,17 @@ type PaletteItem = {
 
 const pageItems: PaletteItem[] = [
   { href: "/", title: "Home", meta: "Index", group: "Navigate", kind: "page" },
-  { href: "/work/", title: "Work", meta: "06 projects", group: "Navigate", kind: "page" },
+  {
+    href: "/work/",
+    title: "Work",
+    meta: `${String(projects.length).padStart(2, "0")} projects`,
+    group: "Navigate",
+    kind: "page",
+  },
+  { href: "/awards/", title: "Awards", meta: "Competitions", group: "Navigate", kind: "page" },
+  { href: "/running/", title: "Running", meta: "Social running", group: "Navigate", kind: "page" },
   { href: "/about/", title: "About", meta: "Profile", group: "Navigate", kind: "page" },
-  { href: "/contact/", title: "Contact", meta: "Email", group: "Navigate", kind: "page" },
+  { href: "/contact/", title: "Contact", meta: "LinkedIn", group: "Navigate", kind: "page" },
 ];
 
 const projectItems: PaletteItem[] = projects.map((p) => ({

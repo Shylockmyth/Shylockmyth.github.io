@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
-import { ArrowUpRight, GitHubIcon } from "./icons";
+import { ArrowUpRight, GitHubIcon, LinkedInIcon } from "./icons";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -17,8 +17,8 @@ export function SiteFooter() {
               <span style={{ color: "var(--accent)" }}>.</span>
             </p>
             <p className="footer__blurb">
-              Electrical and computer engineering, built to be measured: embedded systems, PCB
-              design, computer vision and energy modelling.
+              Electronic engineering student at DUT, working across analogue and embedded design,
+              PCB layout, software, signals and energy modelling.
             </p>
           </div>
 
@@ -27,6 +27,8 @@ export function SiteFooter() {
             <ul>
               <li><Link className="footer__link" href="/">Home</Link></li>
               <li><Link className="footer__link" href="/work/">Work</Link></li>
+              <li><Link className="footer__link" href="/awards/">Awards</Link></li>
+              <li><Link className="footer__link" href="/running/">Running</Link></li>
               <li><Link className="footer__link" href="/about/">About</Link></li>
               <li><Link className="footer__link" href="/contact/">Contact</Link></li>
             </ul>
@@ -44,18 +46,24 @@ export function SiteFooter() {
               ))}
               <li>
                 <Link className="footer__link" href="/work/">
-                  All 06 projects
+                  All {String(projects.length).padStart(2, "0")} projects
                 </Link>
               </li>
             </ul>
           </div>
 
           <div className="footer__col">
-            <p className="footer__heading">Contact</p>
+            <p className="footer__heading">Elsewhere</p>
             <ul>
               <li>
-                <a className="footer__link" href={`mailto:${site.email}`}>
-                  {site.email}
+                <a
+                  className="footer__link"
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+                >
+                  <LinkedInIcon style={{ width: 12, height: 12 }} /> LinkedIn
                 </a>
               </li>
               <li>

@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   creator: site.name,
   keywords: [
     "Ntuthuko Mdunge",
-    "electrical engineering",
-    "computer engineering",
+    "electronic engineering",
+    "analogue electronics",
     "embedded systems",
     "PCB design",
-    "computer vision",
+    "signals and DSP",
     "renewable energy",
     "Durban University of Technology",
     "South Africa",
@@ -69,15 +69,14 @@ const personSchema = {
   name: "Ntuthuko Mdunge",
   alternateName: site.name,
   url: site.url,
-  email: `mailto:${site.email}`,
-  jobTitle: "Electrical and Computer Engineering student",
+  jobTitle: "Electronic Engineering student",
   affiliation: { "@type": "CollegeOrUniversity", name: site.institution },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Durban",
     addressCountry: "ZA",
   },
-  sameAs: [site.github],
+  sameAs: [site.linkedin, site.github],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

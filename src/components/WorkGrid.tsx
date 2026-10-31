@@ -13,7 +13,18 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
     const counts = new Map<string, number>();
     projects.forEach((p) => p.domains.forEach((d) => counts.set(d, (counts.get(d) ?? 0) + 1)));
     const ordered = Array.from(counts.keys()).sort((a, b) => {
-      const priority = ["Hardware", "Software", "Robotics", "Energy", "Security", "Vision"];
+      const priority = [
+        "Hardware",
+        "Analogue",
+        "Embedded",
+        "Software",
+        "Signals",
+        "AI",
+        "Energy",
+        "Modelling",
+        "Robotics",
+        "Vision",
+      ];
       return priority.indexOf(a) - priority.indexOf(b);
     });
     return [

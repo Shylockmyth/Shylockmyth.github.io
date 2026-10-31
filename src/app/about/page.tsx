@@ -6,22 +6,22 @@ import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Profile of ${site.name}: ${site.discipline} at ${site.institution}, working across embedded systems, PCB design, computer vision and energy modelling.`,
+  description: `Profile of ${site.name}: ${site.discipline} student at ${site.institution}, working across analogue and embedded electronics, PCB design, software, signals and energy modelling.`,
   alternates: { canonical: "/about/" },
 };
 
 const principles = [
   {
-    title: "Constraint first",
-    body: "Every project starts with the limit that cannot move: 100 W of input power, a 60% penalty for a dropped video feed, a 4 mil minimum trace, a payback period. The design is the response to that limit.",
+    title: "Build it, then measure",
+    body: "A circuit is not finished when it simulates. Boards get assembled, waveforms get probed, and the report compares what was predicted with what the bench actually showed.",
   },
   {
-    title: "Measure, then claim",
-    body: "Numbers in these case studies come from simulations, datasheets or runs on the bench. Where an assumption is weak, the write-up says so instead of rounding it away.",
+    title: "Say what the assumption is",
+    body: "Some numbers come from simulation, some from a datasheet, some from an estimate. The write-up says which is which instead of rounding a weak assumption away.",
   },
   {
     title: "Document to hand over",
-    body: "A board, a script or a report is only finished when someone else can pick it up: net classes, detection thresholds, tariff tables and the reasoning behind each choice.",
+    body: "A board, a script or a report is only finished when someone else can pick it up: schematics, thresholds, test conditions and the reasoning behind each choice.",
   },
 ];
 
@@ -32,35 +32,35 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="about-grid">
             <div>
-              <p className="eyebrow page__eyebrow">02 / Profile</p>
-              <h1 className="page__title">Engineering, end to end.</h1>
+              <p className="eyebrow page__eyebrow">04 / Profile</p>
+              <h1 className="page__title">Electronics, end to end.</h1>
 
               <div className="about-copy" style={{ marginTop: 24 }}>
                 <p>
-                  I am an Electrical and Computer Engineering student at Durban University of
-                  Technology, working across the boundary where hardware and software have to agree
-                  with each other.
+                  I am an electronic engineering student at Durban University of Technology. My
+                  interests are broad: analogue circuits, embedded firmware, PCB layout, signals,
+                  software and the engineering analysis that ties a system together.
                 </p>
                 <p>
-                  That boundary is where most of my work sits. I have laid out a six-layer board
-                  for a handheld security platform, written the firmware and server that turn a
-                  webcam into a live object-detection feed, and modelled a 2 MWp hybrid renewable
-                  system down to its cost per kilowatt-hour. The common thread is not a particular
-                  language or tool, it is deciding what has to be true for the thing to work, and
-                  then proving it.
+                  That range shows up in the work. I have designed and built an analogue IR distance
+                  sensor from a 555 timer, an LM358 amplifier and comparator stages. I have laid out
+                  and assembled a darkness-activated motion detector in Multisim and Ultiboard. I
+                  have written the firmware for a four-quadrant LDR solar tracker, built a live AI
+                  camera server, and completed a full feasibility study for a grid-connected
+                  solar–wind–battery system at DUT.
                 </p>
                 <p>
-                  On the rover team, a dropped video feed costs 60% of the mission score, so the
-                  wireless link became a first-class subsystem instead of an accessory. In the
-                  energy study, the wind resource for Durban has no published Weibull fit, so the
-                  assumption was extrapolated, stated plainly, and tested for sensitivity. Those
-                  two habits, treating constraints as requirements and documenting weak assumptions,
-                  are the ones I want to carry into professional engineering work.
+                  I also work with teams. On the Cars4Mars rover I contributed to the power and
+                  electronics, and with Team Still Lazy I co-authored the CityGo! public transport
+                  concept. SignalMyth, an XGBoost surrogate for LTE coverage, won the SATNAC 2026
+                  Industry Solutions Challenge under the Telkom topic. The common thread is not one
+                  tool or one language — it is deciding what has to be true for the system to work,
+                  and then proving it.
                 </p>
                 <p>
-                  I am looking for graduate roles where I can keep building complete systems:
-                  embedded design, PCB development, computer vision, or the engineering analysis
-                  that sits around them.
+                  I am still studying, so I am not looking for a role right now. I am happy to help
+                  other students and makers with electronics, embedded or software projects when I
+                  have the time. The best way to reach me is LinkedIn.
                 </p>
               </div>
             </div>
@@ -80,15 +80,15 @@ export default function AboutPage() {
                 </div>
                 <div className="plate__row">
                   <dt>Discipline</dt>
-                  <dd>Electrical &amp; Computer</dd>
+                  <dd>Electronic Engineering</dd>
                 </div>
                 <div className="plate__row">
                   <dt>Focus</dt>
-                  <dd>Embedded / PCB</dd>
+                  <dd>Electronics, broadly</dd>
                 </div>
                 <div className="plate__row">
                   <dt>Status</dt>
-                  <dd style={{ color: "var(--accent)" }}>Open to 2027</dd>
+                  <dd style={{ color: "var(--accent)" }}>Studying</dd>
                 </div>
               </dl>
             </aside>
@@ -181,22 +181,28 @@ export default function AboutPage() {
           <div className="cta reveal">
             <div>
               <p className="eyebrow" style={{ marginBottom: 18 }}>
-                04 / Contact
+                05 / Contact
               </p>
               <h2 className="cta__title">
-                Let&apos;s talk about the <em>next</em> build.
+                Need a hand with a <em>project</em>?
               </h2>
               <p className="cta__text">
-                Graduate applications, collaboration on a hardware or software project, or a
-                technical question about anything in the case studies.
+                I am still studying and not looking for a role. If you are working on an electronics,
+                embedded, signals or software project and want a second pair of eyes, message me on
+                LinkedIn.
               </p>
             </div>
             <div className="cta__actions">
               <Link href="/contact/" className="btn btn--primary">
                 Contact <ArrowUpRight />
               </Link>
-              <a href={`mailto:${site.email}`} className="cta__mail">
-                {site.email}
+              <a
+                href={site.linkedin}
+                className="cta__mail"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
               </a>
               <a
                 href={site.github}

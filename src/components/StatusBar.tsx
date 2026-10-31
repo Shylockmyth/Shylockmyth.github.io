@@ -38,7 +38,7 @@ export function StatusBar() {
           <span className="statusbar__sep" />
           <span>Durban, ZA</span>
           <span className="statusbar__sep" />
-          <span>2 000 kWp / 6 layers / 80 classes</span>
+          <span>2 587 kWp / 2.63 dB / 80 classes</span>
         </div>
 
         <div className="statusbar__group statusbar__group--meta">

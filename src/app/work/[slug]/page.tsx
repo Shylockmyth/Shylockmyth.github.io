@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectCover } from "@/components/ProjectCover";
-import { ArrowRight, ArrowUpRight } from "@/components/icons";
+import { ArrowRight } from "@/components/icons";
 import { getAdjacent, getProject, projects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
@@ -161,9 +161,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             </div>
 
             <div className="panel">
-              <p className="panel__title">
-                Stack <span aria-hidden="true">{String(project.stack.length).padStart(2, "0")}</span>
-              </p>
+              <p className="panel__title">Stack <span aria-hidden="true">{String(project.stack.length).padStart(2, "0")}</span></p>
               <div className="panel__body">
                 <div className="aside__tags">
                   {project.stack.map((item) => (
@@ -175,24 +173,16 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               </div>
             </div>
 
-            <div className="panel">
-              <p className="panel__title">Documents</p>
-              <div className="panel__body" style={{ display: "grid", gap: 10 }}>
-                {project.links?.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="footer__link"
-                    style={{ display: "inline-flex", gap: 6, alignItems: "center" }}
-                  >
-                    {link.label} <ArrowUpRight />
-                  </a>
-                ))}
-                <a href={`mailto:${site.email}?subject=${encodeURIComponent(project.title)}`} className="footer__link">
-                  Request the files
-                </a>
+            {project.note && (
+              <div className="panel">
+                <p className="panel__title">Note</p>
+                <div className="panel__body">
+                  <p style={{ fontSize: "0.82rem", color: "var(--muted)", lineHeight: 1.65 }}>
+                    {project.note}
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </aside>
         </div>
 

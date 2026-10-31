@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: `Engineering case studies by ${site.name}: embedded systems, PCB design, computer vision, robotics and renewable energy.`,
+  description: `Engineering case studies by ${site.name}: analogue and embedded electronics, PCB design, software, signals and renewable energy.`,
   alternates: { canonical: "/work/" },
 };
 
@@ -20,9 +20,8 @@ export default function WorkPage() {
           <p className="eyebrow page__eyebrow">01 / Index</p>
           <h1 className="page__title">Selected work</h1>
           <p className="page__lede">
-            Six builds across hardware, software, robotics and energy. Each case study covers the
-            constraint that shaped the design, what was measured, and what the result actually
-            was.
+            Ten builds across hardware, software, signals and energy. Each case study covers the
+            constraint that shaped the design, what was measured, and what the result actually was.
           </p>
           <div className="page__meta">
             <span>

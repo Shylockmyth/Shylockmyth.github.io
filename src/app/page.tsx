@@ -8,16 +8,16 @@ import { featuredProjects, projects } from "@/lib/projects";
 const tech = [
   "Python",
   "C / C++",
-  "STM32",
-  "KiCad",
+  "Arduino",
   "Multisim",
-  "YOLO11",
+  "Ultiboard",
+  "Proteus",
   "OpenCV",
+  "MATLAB",
+  "XGBoost",
   "Flask",
   "Next.js",
-  "SQLite",
-  "PVWatts",
-  "Weibull",
+  "PVGIS",
   "Linux",
   "Git",
 ];
@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="wrap hero__grid">
           <div>
             <p className="eyebrow hero__eyebrow">
-              Electrical &amp; Computer Engineering
+              Electronic Engineering
               <span className="hero__status">DUT · Durban, ZA</span>
             </p>
 
@@ -39,9 +39,9 @@ export default function HomePage() {
             </h1>
 
             <p className="hero__lede">
-              I design <strong>embedded hardware</strong>, <strong>PCB systems</strong> and the
-              software that runs on them. My work runs from a 6-layer security board to a 2 MWp
-              solar feasibility study, a Mars rover and a camera that thinks in real time.
+              I am an <strong>electronic engineering student</strong> at DUT. My work runs from
+              analogue circuits and PCB builds to embedded firmware, signals, software and a
+              solar–wind–battery feasibility study. Broad electronics, built and tested.
             </p>
 
             <div className="hero__actions">
@@ -60,11 +60,11 @@ export default function HomePage() {
               </div>
               <div className="fact">
                 <dt className="fact__k">Focus</dt>
-                <dd className="fact__v">Embedded + PCB</dd>
+                <dd className="fact__v">Electronics, broadly</dd>
               </div>
               <div className="fact">
                 <dt className="fact__k">Availability</dt>
-                <dd className="fact__v">2027 graduate roles</dd>
+                <dd className="fact__v">Happy to help with projects</dd>
               </div>
             </dl>
           </div>
@@ -83,20 +83,20 @@ export default function HomePage() {
               <dl className="readout__rows">
                 <div className="readout__row">
                   <dt>Focus</dt>
-                  <dd>Embedded / hardware</dd>
+                  <dd>Electronics · signals</dd>
                 </div>
                 <div className="readout__row">
                   <dt>Toolchain</dt>
-                  <dd>C · Python · TypeScript</dd>
+                  <dd>C · Python · MATLAB</dd>
                 </div>
                 <div className="readout__row">
-                  <dt>Current</dt>
-                  <dd>Energy model · rover</dd>
+                  <dt>Latest</dt>
+                  <dd>SATNAC 2026 winner</dd>
                 </div>
                 <div className="readout__row">
                   <dt>Status</dt>
                   <dd>
-                    <span className="ok">● open</span>
+                    <span className="ok">● studying</span>
                   </dd>
                 </div>
               </dl>
@@ -168,8 +168,8 @@ export default function HomePage() {
             <span className="section-head__idx">03</span>
             <h2 className="section-head__title">Track record</h2>
             <span className="section-head__rule" aria-hidden="true" />
-            <Link href="/about/" className="section-head__more">
-              Full profile <ArrowRight />
+            <Link href="/awards/" className="section-head__more">
+              Awards <ArrowRight />
             </Link>
           </div>
 
@@ -190,26 +190,62 @@ export default function HomePage() {
 
       <section className="section">
         <div className="wrap">
+          <div className="split-cards reveal">
+            <Link href="/awards/" className="split-card">
+              <p className="split-card__k">02 / Competitions</p>
+              <h2 className="split-card__title">Awards</h2>
+              <p className="split-card__text">
+                SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic, BRICS 2025
+                Bronze for Dr Kiosk, a JCI hackathon second place and an FNB App Academy certificate.
+              </p>
+              <span className="split-card__cta">
+                See the awards <ArrowRight />
+              </span>
+            </Link>
+
+            <Link href="/running/" className="split-card">
+              <p className="split-card__k">03 / Off the bench</p>
+              <h2 className="split-card__title">Running</h2>
+              <p className="split-card__text">
+                Social running and 10 km races: Hollywood Bets, ABSA Run Your City, Ntenga
+                Foundation and Garmin. The medals are the same idea as the bench work — show up,
+                measure, repeat.
+              </p>
+              <span className="split-card__cta">
+                See the races <ArrowRight />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
           <div className="cta reveal">
             <div>
               <p className="eyebrow" style={{ marginBottom: 18 }}>
-                04 / Contact
+                05 / Contact
               </p>
               <h2 className="cta__title">
-                Have a system that needs <em>building</em>?
+                Happy to help with a <em>project</em>.
               </h2>
               <p className="cta__text">
-                I am looking for graduate roles and projects where hardware and software meet:
-                embedded design, PCB work, computer vision, or energy systems that have to add up
-                on paper before they add up on site.
+                I am still studying, so I am not looking for a role. If you are working on an
+                electronics, embedded, signals or software project and want a hand, message me on
+                LinkedIn and tell me what you are building and where you are stuck.
               </p>
             </div>
             <div className="cta__actions">
               <Link href="/contact/" className="btn btn--primary">
                 Start a conversation <ArrowUpRight />
               </Link>
-              <a href={`mailto:${site.email}`} className="cta__mail">
-                {site.email}
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="cta__mail"
+              >
+                LinkedIn
               </a>
             </div>
           </div>
