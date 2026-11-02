@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HeroDiagram } from "@/components/HeroDiagram";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ArrowRight, ArrowUpRight } from "@/components/icons";
+import { ArrowRight, ArrowUpRight, DownloadIcon } from "@/components/icons";
 import { capabilities, site, trackRecord } from "@/lib/site";
 import { featuredProjects, projects } from "@/lib/projects";
 
@@ -39,19 +39,28 @@ export default function HomePage() {
             </h1>
 
             <p className="hero__lede">
-              I am an <strong>electronic engineering student</strong> at DUT. My work runs from
-              analogue circuits and PCB builds to embedded firmware, signals, software and a
-              solar–wind–battery feasibility study. Broad electronics, built and tested.
+              I am an <strong>electronic engineering student</strong> at DUT, expected to graduate
+              in 2027. My work runs from analogue circuits and PCB builds to embedded firmware,
+              signals, software and a solar–wind–battery feasibility study. In 2026 my team&apos;s
+              LTE coverage model won <strong>SATNAC Innovator of the Year</strong>.
             </p>
 
             <div className="hero__actions">
               <Link href="/work/" className="btn btn--primary">
                 View selected work <ArrowRight />
               </Link>
+              <a href={site.cv} className="btn" download>
+                Download CV <DownloadIcon />
+              </a>
               <Link href="/contact/" className="btn">
                 Get in touch
               </Link>
             </div>
+
+            <p className="hero__note">
+              <span className="status__dot" aria-hidden="true" />
+              {site.availability}
+            </p>
 
             <dl className="hero__facts">
               <div className="fact">
@@ -63,8 +72,8 @@ export default function HomePage() {
                 <dd className="fact__v">Electronics, broadly</dd>
               </div>
               <div className="fact">
-                <dt className="fact__k">Availability</dt>
-                <dd className="fact__v">Happy to help with projects</dd>
+                <dt className="fact__k">Recognition</dt>
+                <dd className="fact__v">SATNAC 2026 winner</dd>
               </div>
             </dl>
           </div>
@@ -96,7 +105,7 @@ export default function HomePage() {
                 <div className="readout__row">
                   <dt>Status</dt>
                   <dd>
-                    <span className="ok">● studying</span>
+                    <span className="ok">● studying · 2027</span>
                   </dd>
                 </div>
               </dl>
@@ -122,7 +131,7 @@ export default function HomePage() {
             <h2 className="section-head__title">Selected work</h2>
             <span className="section-head__rule" aria-hidden="true" />
             <Link href="/work/" className="section-head__more">
-              All {String(projects.length).padStart(2, "0")} projects <ArrowRight />
+              See all {projects.length} projects <ArrowRight />
             </Link>
           </div>
 
@@ -131,6 +140,12 @@ export default function HomePage() {
               <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
+
+          <p className="work-foot">
+            Three selected case studies.{" "}
+            <Link href="/work/">All {projects.length} projects are on the work index</Link>, with
+            the full build for each.
+          </p>
         </div>
       </section>
 
@@ -153,7 +168,16 @@ export default function HomePage() {
                 <p className="cap__blurb">{cap.blurb}</p>
                 <ul className="cap__list">
                   {cap.items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item.label}>
+                      <span>{item.label}</span>
+                      {item.slug && item.project ? (
+                        <Link href={`/work/${item.slug}/`} className="cap__proof">
+                          {item.project} <ArrowRight />
+                        </Link>
+                      ) : (
+                        <span className="cap__proof cap__proof--none">{item.project ?? "site build"}</span>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </article>
@@ -190,32 +214,23 @@ export default function HomePage() {
 
       <section className="section">
         <div className="wrap">
-          <div className="split-cards reveal">
-            <Link href="/awards/" className="split-card">
-              <p className="split-card__k">02 / Competitions</p>
-              <h2 className="split-card__title">Awards</h2>
-              <p className="split-card__text">
-                SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic and
-                Innovator of the Year for the best solution, BRICS 2025 Bronze for Dr Kiosk, a JCI
-                hackathon second place and an FNB App Academy certificate.
+          <div className="next-links reveal">
+            <div className="next-links__main">
+              <p className="eyebrow">Awards &amp; recognition</p>
+              <p className="next-links__text">
+                SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic, named
+                Innovator of the Year; BRICS 2025 Bronze for Dr Kiosk; a JCI hackathon second place.
               </p>
-              <span className="split-card__cta">
+              <Link href="/awards/" className="btn btn--primary">
                 See the awards <ArrowRight />
-              </span>
-            </Link>
-
-            <Link href="/running/" className="split-card">
-              <p className="split-card__k">03 / Off the bench</p>
-              <h2 className="split-card__title">Running</h2>
-              <p className="split-card__text">
-                Social running and 10 km races: Hollywood Bets, ABSA Run Your City, Ntenga
-                Foundation and Garmin. The medals are the same idea as the bench work — show up,
-                measure, repeat.
-              </p>
-              <span className="split-card__cta">
-                See the races <ArrowRight />
-              </span>
-            </Link>
+              </Link>
+            </div>
+            <p className="next-links__aside">
+              Off the bench:{" "}
+              <Link href="/running/">
+                10 km races and medals <ArrowUpRight />
+              </Link>
+            </p>
           </div>
         </div>
       </section>
@@ -225,15 +240,15 @@ export default function HomePage() {
           <div className="cta reveal">
             <div>
               <p className="eyebrow" style={{ marginBottom: 18 }}>
-                05 / Contact
+                04 / Contact
               </p>
               <h2 className="cta__title">
-                Happy to help with a <em>project</em>.
+                Open to 2027 <em>opportunities</em>.
               </h2>
               <p className="cta__text">
-                I am still studying, so I am not looking for a role. If you are working on an
-                electronics, embedded, signals or software project and want a hand, message me on
-                LinkedIn and tell me what you are building and where you are stuck.
+                I am completing my BEng Tech in 2027 and am open to vacation work and graduate
+                roles. If you are hiring, or working on an electronics, embedded, signals or
+                software project and want a hand, message me on LinkedIn with what you are building.
               </p>
             </div>
             <div className="cta__actions">
@@ -241,12 +256,11 @@ export default function HomePage() {
                 Start a conversation <ArrowUpRight />
               </Link>
               <a
-                href={site.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="cta__mail"
+                href={site.cv}
+                className="btn"
+                download
               >
-                LinkedIn
+                Download CV <DownloadIcon />
               </a>
             </div>
           </div>

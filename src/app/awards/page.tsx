@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Awards",
-  description: `Competitions and recognition: SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic and Innovator of the Year, BRICS 2025 Bronze, a JCI hackathon second place and an FNB App Academy certificate.`,
+  description: `Competitions and recognition: SATNAC 2026 Industry Solutions Challenge winner under the Telkom topic and Innovator of the Year, BRICS 2025 Bronze and a JCI hackathon second place, plus programmes and certificates.`,
   alternates: { canonical: "/awards/" },
 };
 
@@ -44,6 +44,12 @@ const awards: Award[] = [
       { src: "/images/awards/satnac-4.jpg", alt: "SATNAC 2026 Innovator of the Year award photograph", width: 1600, height: 1067, wide: true },
       { src: "/images/awards/satnac-5.jpg", alt: "SATNAC 2026 team with the Innovator of the Year award", width: 1600, height: 1067, wide: true },
     ],
+    certificate: {
+      src: "/images/awards/satnac-certificates.jpg",
+      alt: "SATNAC 2026 Innovator of the Year certificate awarded to SignalMyth and Topic Winners certificate awarded to Ntuthuko Mdunge",
+      width: 1200,
+      height: 1592,
+    },
   },
   {
     index: "02",
@@ -90,21 +96,15 @@ const awards: Award[] = [
       { src: "/images/awards/jci-2.jpg", alt: "JCI hackathon team with the second place award", width: 960, height: 1280 },
     ],
   },
+];
+
+const programmes = [
   {
-    index: "04",
     year: "2025",
-    place: "Certificate",
     title: "FNB App Academy",
     org: "FNB · IT varsity",
-    body:
-      "Completed the FNB App Academy programme in Full Stack Development, earning 32 credits. The course covered the application stack from the front end through to data and deployment, and it is the reason the web side of these projects is not an afterthought.",
-    facts: [
-      { label: "Result", value: "Certificate" },
-      { label: "Programme", value: "Full Stack Development" },
-      { label: "Credits", value: "32" },
-      { label: "Provider", value: "FNB · IT varsity" },
-    ],
-    photos: [],
+    detail:
+      "Certificate in Full Stack Development, 32 credits, covering the application stack from the front end through to data and deployment.",
     certificate: {
       src: "/images/awards/fnb-certificate.jpg",
       alt: "FNB App Academy certificate in Full Stack Development",
@@ -127,7 +127,7 @@ export default function AwardsPage() {
           </p>
           <div className="page__meta">
             <span>
-              <b>04</b> entries
+              <b>03</b> competitions
             </span>
             <span>
               <b>1</b> win · <b>1</b> special award
@@ -199,7 +199,39 @@ export default function AwardsPage() {
           ))}
         </div>
 
-        <div className="cta reveal" style={{ marginTop: "clamp(40px, 5vw, 64px)" }}>
+        <section className="programmes" id="programmes" aria-labelledby="programmes-title">
+          <div className="section-head reveal">
+            <span className="section-head__idx">04</span>
+            <h2 className="section-head__title" id="programmes-title">
+              Programmes &amp; certificates
+            </h2>
+            <span className="section-head__rule" aria-hidden="true" />
+          </div>
+
+          <div className="programme-grid reveal">
+            {programmes.map((programme) => (
+              <article className="programme" key={programme.title}>
+                <div>
+                  <p className="programme__year">{programme.year}</p>
+                  <h3 className="programme__title">{programme.title}</h3>
+                  <p className="programme__org">{programme.org}</p>
+                  <p className="programme__detail">{programme.detail}</p>
+                </div>
+                <figure className="programme__certificate">
+                  <Image
+                    src={programme.certificate.src}
+                    alt={programme.certificate.alt}
+                    width={programme.certificate.width}
+                    height={programme.certificate.height}
+                    sizes="(max-width: 760px) 70vw, 22vw"
+                  />
+                </figure>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <div className="cta reveal" style={{ marginTop: "clamp(48px, 6vw, 80px)" }}>
           <div>
             <p className="eyebrow" style={{ marginBottom: 18 }}>
               Keep looking

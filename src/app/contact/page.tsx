@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, GitHubIcon, LinkedInIcon } from "@/components/icons";
+import Link from "next/link";
+import { ArrowUpRight, DownloadIcon, GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${site.name} on LinkedIn for project help, collaborations or technical questions. Based in ${site.location}.`,
+  description: `Contact ${site.name}, electronic engineering student at DUT and SATNAC 2026 Innovator of the Year. Open to vacation work and graduate roles from 2027. Based in ${site.location}.`,
   alternates: { canonical: "/contact/" },
 };
 
@@ -12,12 +13,13 @@ export default function ContactPage() {
   return (
     <div className="page">
       <div className="wrap">
-        <header style={{ marginBottom: "clamp(30px, 4vw, 48px)", maxWidth: "62ch" }}>
-          <p className="eyebrow page__eyebrow">05 / Contact</p>
+        <header style={{ marginBottom: "clamp(30px, 4vw, 48px)", maxWidth: "64ch" }}>
+          <p className="eyebrow page__eyebrow">04 / Contact</p>
           <h1 className="page__title">Get in touch.</h1>
           <p className="page__lede">
-            LinkedIn is the one place to reach me. Tell me what you are building and the constraint
-            you are stuck on, and I will reply if I can help.
+            I am open to <strong>vacation work and graduate roles from 2027</strong>. LinkedIn is
+            the one place to reach me — whether you are hiring, or working on an electronics,
+            embedded, signals or software project and want a second pair of eyes.
           </p>
         </header>
 
@@ -54,6 +56,9 @@ export default function ContactPage() {
                     rel="noreferrer"
                   >
                     <GitHubIcon /> GitHub
+                  </a>
+                  <a className="copy-btn" href={site.cv} download>
+                    <DownloadIcon /> CV
                   </a>
                 </div>
               </div>
@@ -100,7 +105,7 @@ export default function ContactPage() {
               </div>
               <div className="contact-fact">
                 <dt>Best for</dt>
-                <dd>Project help · electronics · software</dd>
+                <dd>Graduate roles · vacation work · project help</dd>
               </div>
             </dl>
           </div>
@@ -108,17 +113,33 @@ export default function ContactPage() {
           <div>
             <div className="panel">
               <p className="panel__title">
+                CV <span aria-hidden="true">PDF</span>
+              </p>
+              <div className="panel__body" style={{ display: "grid", gap: 14 }}>
+                <p>
+                  One page, no contact details beyond LinkedIn: education, experience, leadership,
+                  skills and projects.
+                </p>
+                <a href={site.cv} className="btn btn--primary" download>
+                  Download CV <DownloadIcon />
+                </a>
+                <p className="panel__note">Ntuthuko-Mdunge-CV.pdf · 1 page</p>
+              </div>
+            </div>
+
+            <div className="panel" style={{ marginTop: 20 }}>
+              <p className="panel__title">
                 What helps <span aria-hidden="true">INFO</span>
               </p>
               <div className="panel__body" style={{ display: "grid", gap: 14 }}>
                 <p>
-                  I am still studying, so I am not taking on paid work or a full-time role. I am
-                  glad to help with a student or personal project when I have the time.
+                  For a role: the position, the team and the start date. I am completing my BEng
+                  Tech in 2027, so vacation work and graduate intakes line up best.
                 </p>
                 <p>
-                  A useful first message says what the project is, what it has to do, what you have
-                  already built, and where it is failing. A photo of the circuit or the error message
-                  is worth more than a paragraph.
+                  For a project: what it has to do, what you have already built, and where it is
+                  failing. A photo of the circuit or the error message is worth more than a
+                  paragraph.
                 </p>
                 <a
                   className="footer__link"
@@ -134,7 +155,7 @@ export default function ContactPage() {
 
             <div className="panel" style={{ marginTop: 20 }}>
               <p className="panel__title">
-                Elsewhere <span aria-hidden="true">02</span>
+                Elsewhere <span aria-hidden="true">03</span>
               </p>
               <div className="panel__body" style={{ display: "grid", gap: 10 }}>
                 <a
@@ -146,15 +167,15 @@ export default function ContactPage() {
                 >
                   <GitHubIcon style={{ width: 12, height: 12 }} /> github.com/{site.githubHandle}
                 </a>
-                <a className="footer__link" href="/work/">
+                <Link className="footer__link" href="/work/">
                   Project case studies
-                </a>
-                <a className="footer__link" href="/awards/">
+                </Link>
+                <Link className="footer__link" href="/awards/">
                   Awards and competitions
-                </a>
-                <a className="footer__link" href="/running/">
-                  Social running
-                </a>
+                </Link>
+                <Link className="footer__link" href="/about/#leadership">
+                  Leadership
+                </Link>
               </div>
             </div>
           </div>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "@/components/icons";
-import { site, toolchain, trackRecord } from "@/lib/site";
+import { ArrowRight, ArrowUpRight, DownloadIcon } from "@/components/icons";
+import { leadership, site, toolchain, trackRecord } from "@/lib/site";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Profile of ${site.name}: ${site.discipline} student at ${site.institution}, working across analogue and embedded electronics, PCB design, software, signals and energy modelling.`,
+  description: `Profile of ${site.name}: electronic engineering student at ${site.institution} and SATNAC 2026 Innovator of the Year, working across analogue and embedded electronics, PCB design, software, signals and energy modelling.`,
   alternates: { canonical: "/about/" },
 };
 
@@ -32,14 +33,15 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="about-grid">
             <div>
-              <p className="eyebrow page__eyebrow">04 / Profile</p>
+              <p className="eyebrow page__eyebrow">03 / Profile</p>
               <h1 className="page__title">Electronics, end to end.</h1>
 
               <div className="about-copy" style={{ marginTop: 24 }}>
                 <p>
-                  I am an electronic engineering student at Durban University of Technology. My
-                  interests are broad: analogue circuits, embedded firmware, PCB layout, signals,
-                  software and the engineering analysis that ties a system together.
+                  I am an electronic engineering student at Durban University of Technology,
+                  completing my BEng Tech in 2027. My interests are broad: analogue circuits,
+                  embedded firmware, PCB layout, signals, software and the engineering analysis that
+                  ties a system together.
                 </p>
                 <p>
                   That range shows up in the work. I have designed and built an analogue IR distance
@@ -50,19 +52,28 @@ export default function AboutPage() {
                   solar–wind–battery system at DUT.
                 </p>
                 <p>
-                  I also work with teams. On the Cars4Mars rover I contributed to the power and
-                  electronics, and with Team Still Lazy I co-authored the CityGo! public transport
-                  concept. SignalMyth, an XGBoost surrogate for LTE coverage, won the SATNAC 2026
-                  Industry Solutions Challenge under the Telkom topic and was named Innovator of the
-                  Year for the best solution. The common thread is not one
-                  tool or one language — it is deciding what has to be true for the system to work,
-                  and then proving it.
+                  I also lead teams. As team leader on Cars4Mars I worked across the power and
+                  electronics on a national competition rover, and I led the SignalMyth team whose
+                  XGBoost surrogate for LTE coverage won the <strong>SATNAC 2026 Industry
+                  Solutions Challenge</strong> under the Telkom topic and was named{" "}
+                  <strong>Innovator of the Year</strong> for the best solution. The common thread is
+                  not one tool or one language — it is deciding what has to be true for the system
+                  to work, and then proving it.
                 </p>
                 <p>
-                  I am still studying, so I am not looking for a role right now. I am happy to help
-                  other students and makers with electronics, embedded or software projects when I
-                  have the time. The best way to reach me is LinkedIn.
+                  I am open to <strong>vacation work and graduate roles from 2027</strong>. I am also
+                  glad to help other students and makers with electronics, embedded or software
+                  projects when I have the time. The best way to reach me is LinkedIn.
                 </p>
+              </div>
+
+              <div className="about-actions">
+                <a href={site.cv} className="btn btn--primary" download>
+                  Download CV <DownloadIcon />
+                </a>
+                <Link href="/contact/" className="btn">
+                  Contact <ArrowUpRight />
+                </Link>
               </div>
             </div>
 
@@ -77,7 +88,7 @@ export default function AboutPage() {
                 </div>
                 <div className="plate__row">
                   <dt>Studying</dt>
-                  <dd>BEng Tech, DUT</dd>
+                  <dd>BEng Tech, DUT · 2027</dd>
                 </div>
                 <div className="plate__row">
                   <dt>Discipline</dt>
@@ -88,8 +99,12 @@ export default function AboutPage() {
                   <dd>Electronics, broadly</dd>
                 </div>
                 <div className="plate__row">
+                  <dt>Recognition</dt>
+                  <dd>SATNAC Innovator of the Year</dd>
+                </div>
+                <div className="plate__row">
                   <dt>Status</dt>
-                  <dd style={{ color: "var(--accent)" }}>Studying</dd>
+                  <dd style={{ color: "var(--accent)" }}>{site.availabilityShort}</dd>
                 </div>
               </dl>
             </aside>
@@ -117,6 +132,14 @@ export default function AboutPage() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+                <p className="stack-group__evidence">
+                  <span>Evidence</span>
+                  {group.evidence.map((item) => (
+                    <Link href={`/work/${item.slug}/`} key={item.slug}>
+                      {item.label} <ArrowRight />
+                    </Link>
+                  ))}
+                </p>
               </div>
             ))}
             <div className="stack-group">
@@ -151,10 +174,53 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="leadership">
         <div className="wrap">
           <div className="section-head reveal">
             <span className="section-head__idx">03</span>
+            <h2 className="section-head__title">Leadership</h2>
+            <span className="section-head__rule" aria-hidden="true" />
+            <span className="section-head__more" style={{ color: "var(--dim)" }}>
+              2025 – 2026
+            </span>
+          </div>
+
+          <div className="leader-grid reveal">
+            <div className="leader-list">
+              {leadership.map((row) => (
+                <article className="leader" key={`${row.period}-${row.title}`}>
+                  <p className="leader__period">{row.period}</p>
+                  <h3 className="leader__title">{row.title}</h3>
+                  <p className="leader__org">{row.org}</p>
+                  <p className="leader__detail">{row.detail}</p>
+                </article>
+              ))}
+            </div>
+
+            <figure className="cert">
+              <div className="cert__frame">
+                <Image
+                  src="/images/leadership/alpine-house-committee.jpg"
+                  alt="Certificate from DUT Student Housing and Residence Life presented to Ntuthuko Mdunge in recognition of his contribution to the Alpine Residence House Committee"
+                  width={1400}
+                  height={1023}
+                  sizes="(max-width: 900px) 92vw, 42vw"
+                />
+              </div>
+              <figcaption className="cert__cap">
+                <span className="cert__label">Certificate</span>
+                Alpine Residence House Committee · DUT Student Housing &amp; Residence Life. Signed
+                by the Manager, Student Housing &amp; Residence Life and the Dean of Students.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head reveal">
+            <span className="section-head__idx">04</span>
             <h2 className="section-head__title">Track record</h2>
             <span className="section-head__rule" aria-hidden="true" />
             <Link href="/work/" className="section-head__more">
@@ -174,6 +240,12 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          <p className="record__foot">
+            Programmes and certificates, including the FNB App Academy certificate in Full Stack
+            Development, are listed on the{" "}
+            <Link href="/awards/#programmes">awards page</Link>.
+          </p>
         </div>
       </section>
 
@@ -185,25 +257,20 @@ export default function AboutPage() {
                 05 / Contact
               </p>
               <h2 className="cta__title">
-                Need a hand with a <em>project</em>?
+                Open to 2027 <em>opportunities</em>.
               </h2>
               <p className="cta__text">
-                I am still studying and not looking for a role. If you are working on an electronics,
-                embedded, signals or software project and want a second pair of eyes, message me on
-                LinkedIn.
+                Vacation work and graduate roles from 2027, or a second pair of eyes on an
+                electronics, embedded, signals or software project. Message me on LinkedIn with what
+                you are building.
               </p>
             </div>
             <div className="cta__actions">
               <Link href="/contact/" className="btn btn--primary">
                 Contact <ArrowUpRight />
               </Link>
-              <a
-                href={site.linkedin}
-                className="cta__mail"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
+              <a href={site.cv} className="btn" download>
+                Download CV <DownloadIcon />
               </a>
               <a
                 href={site.github}

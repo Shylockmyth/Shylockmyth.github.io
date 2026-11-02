@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · ${site.discipline}`,
+    default: `${site.name} · ${site.tagline}`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   creator: site.name,
   keywords: [
     "Ntuthuko Mdunge",
+    "SATNAC 2026",
+    "Innovator of the Year",
     "electronic engineering",
     "analogue electronics",
     "embedded systems",
@@ -37,14 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} · ${site.discipline}`,
+    title: `${site.name} · ${site.tagline}`,
     description: site.description,
     locale: "en_ZA",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} · ${site.discipline}`,
+    title: `${site.name} · ${site.tagline}`,
     description: site.description,
     images: ["/og.png"],
   },
@@ -76,6 +78,19 @@ const personSchema = {
     addressLocality: "Durban",
     addressCountry: "ZA",
   },
+  award: [
+    "SATNAC 2026 Innovator of the Year (SignalMyth)",
+    "BRICS 2025 Bronze, Technology Innovation (Dr Kiosk)",
+    "JCI Smart Cities Hackathon 2025, second place",
+  ],
+  knowsAbout: [
+    "Analogue electronics",
+    "Embedded systems",
+    "PCB design",
+    "Digital signal processing",
+    "Machine learning",
+    "Renewable energy modelling",
+  ],
   sameAs: [site.linkedin, site.github],
 };
 

@@ -85,6 +85,48 @@ export function CloseIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function ChevronLeft(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M10 3.5 5.5 8 10 12.5" />
+    </svg>
+  );
+}
+
+export function ChevronRight(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 3.5 10.5 8 6 12.5" />
+    </svg>
+  );
+}
+
+export function ExpandIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 2.5H2.5V6M10 2.5h3.5V6M6 13.5H2.5V10M10 13.5h3.5V10" />
+    </svg>
+  );
+}
+
+export function ZoomInIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="7" cy="7" r="4.25" />
+      <path d="m10.2 10.2 3 3M7 5v4M5 7h4" />
+    </svg>
+  );
+}
+
+export function ZoomOutIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="7" cy="7" r="4.25" />
+      <path d="m10.2 10.2 3 3M5 7h4" />
+    </svg>
+  );
+}
+
 export function FileIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...base} {...props}>

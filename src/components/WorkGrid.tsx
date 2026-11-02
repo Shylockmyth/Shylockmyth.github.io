@@ -40,6 +40,8 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
 
   return (
     <>
+      <h2 className="sr-only">All projects</h2>
+
       <div className="filters" role="group" aria-label="Filter projects by discipline">
         {filters.map(({ label, count }) => (
           <button

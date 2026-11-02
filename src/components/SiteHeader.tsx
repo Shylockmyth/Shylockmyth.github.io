@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { nav } from "@/lib/site";
+import { site } from "@/lib/site";
 import { projects } from "@/lib/projects";
 import {
   CloseIcon,
+  DownloadIcon,
   FileIcon,
   MenuIcon,
   MoonIcon,
@@ -197,6 +199,10 @@ export function SiteHeader() {
           </nav>
 
           <div className="header__actions">
+            <a href={site.cv} className="header__cv" download>
+              <DownloadIcon aria-hidden="true" />
+              <span>CV</span>
+            </a>
             <button
               type="button"
               className="kbd-btn"
@@ -240,6 +246,10 @@ export function SiteHeader() {
               <span>{item.index}</span>
             </Link>
           ))}
+          <a href={site.cv} className="mobile-menu__link" download>
+            Download CV
+            <span>PDF</span>
+          </a>
         </nav>
       )}
 

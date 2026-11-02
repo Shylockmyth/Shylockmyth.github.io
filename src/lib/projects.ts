@@ -227,7 +227,7 @@ export const projects: Project[] = [
     domains: ["AI", "Signals", "Software"],
     lede:
       "An XGBoost surrogate that predicts LTE RSRP coverage from terrain and clutter in seconds instead of the seven to nine days taken by Telkom's manual ray-tracing workflow. Winner of the SATNAC 2026 Industry Solutions Challenge, Telkom topic, and named Innovator of the Year for the best solution.",
-    role: "Pipeline, feature engineering, model training and validation (team entry)",
+    role: "Team lead: pipeline, feature engineering, model training and validation",
     status: "Winner · Innovator of the Year · SATNAC 2026",
     stack: ["Python", "XGBoost", "SRTM", "ESA WorldCover", "rasterio", "scikit-learn"],
     featured: true,
@@ -312,7 +312,7 @@ export const projects: Project[] = [
     domains: ["Robotics", "Hardware"],
     lede:
       "A 6-wheel rocker-bogie rover built with the DUT SSC Mars Rover Team for the national Cars4Mars competition: terrain-adaptive drive, an 80 m wireless link, and onboard vision for target detection.",
-    role: "Power and electronics, team contributor",
+    role: "Team lead: build plan and integration, with power and electronics",
     status: "Competition platform · next-generation rover in design",
     stack: ["Embedded C", "Motor control", "Power electronics", "Computer vision", "Wireless comms"],
     featured: true,
@@ -522,9 +522,17 @@ export const projects: Project[] = [
     ],
     gallery: [
       {
+        src: "/images/ldr-tracker/proteus-schematic.png",
+        alt: "Proteus schematic of the SMT-based LDR solar tracking circuit: four LDR dividers into an ATmega328P, limit switches, L298N motor driver and status LEDs",
+        caption:
+          "The simulated circuit: four LDR dividers into the ATmega328P, both limit switches, the L298N motor stage and the status LEDs. Drawn from the Proteus project file.",
+        width: 1600,
+        height: 841,
+      },
+      {
         src: "/images/ldr-tracker/simulated-circuit.jpg",
-        alt: "Proteus simulation of the LDR solar tracking circuit",
-        caption: "The Proteus model: four LDR dividers, Arduino Uno, L298N drive and the virtual terminal used in place of the LCD.",
+        alt: "Proteus simulation of the LDR solar tracking circuit running with the virtual terminal",
+        caption: "The same model running: virtual terminal in place of the LCD, with live channel and state readouts.",
         width: 831,
         height: 439,
       },

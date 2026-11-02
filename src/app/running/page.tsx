@@ -77,7 +77,7 @@ export default function RunningPage() {
     <div className="page">
       <div className="wrap">
         <header style={{ marginBottom: "clamp(32px, 4vw, 52px)", maxWidth: "68ch" }}>
-          <p className="eyebrow page__eyebrow">03 / Off the bench</p>
+          <p className="eyebrow page__eyebrow">Off the bench · Secondary</p>
           <h1 className="page__title">Running.</h1>
           <p className="page__lede">
             Social running, mostly 10 km road races around Durban. It is the same habit as the bench

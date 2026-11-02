@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { site } from "@/lib/site";
-import { ArrowUpRight, GitHubIcon, LinkedInIcon } from "./icons";
+import { ArrowUpRight, DownloadIcon, GitHubIcon, LinkedInIcon } from "./icons";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -46,7 +46,7 @@ export function SiteFooter() {
               ))}
               <li>
                 <Link className="footer__link" href="/work/">
-                  All {String(projects.length).padStart(2, "0")} projects
+                  See all {projects.length} projects
                 </Link>
               </li>
             </ul>
@@ -77,11 +77,21 @@ export function SiteFooter() {
                   <GitHubIcon style={{ width: 12, height: 12 }} /> GitHub / {site.githubHandle}
                 </a>
               </li>
+              <li>
+                <a
+                  className="footer__link"
+                  href={site.cv}
+                  download
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+                >
+                  <DownloadIcon style={{ width: 12, height: 12 }} /> Download CV (PDF)
+                </a>
+              </li>
               <li className="footer__link" style={{ color: "var(--dim)" }}>
                 {site.location}
               </li>
               <li className="footer__link" style={{ color: "var(--dim)" }}>
-                {site.availability}
+                {site.availabilityShort}
               </li>
             </ul>
           </div>

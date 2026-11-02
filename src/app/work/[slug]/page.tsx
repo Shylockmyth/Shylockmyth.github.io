@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectCover } from "@/components/ProjectCover";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { ArrowRight } from "@/components/icons";
 import { getAdjacent, getProject, projects } from "@/lib/projects";
 import { site } from "@/lib/site";
@@ -126,21 +126,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             {project.gallery && (
               <section>
                 <h2 id="figures">Figures</h2>
-                <div className="gallery">
-                  {project.gallery.map((item, i) => (
-                    <figure key={item.src} className={i === 0 ? "wide" : undefined}>
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={item.width}
-                        height={item.height}
-                        sizes="(max-width: 720px) 100vw, 1000px"
-                        loading={i === 0 ? "eager" : "lazy"}
-                      />
-                      {item.caption && <figcaption>{item.caption}</figcaption>}
-                    </figure>
-                  ))}
-                </div>
+                <ProjectGallery items={project.gallery} />
               </section>
             )}
           </article>
