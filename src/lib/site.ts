@@ -30,6 +30,7 @@ export const nav = [
   { href: "/awards/", label: "Awards", index: "02" },
   { href: "/about/", label: "About", index: "03" },
   { href: "/contact/", label: "Contact", index: "04" },
+  { href: "/running/", label: "Running", index: "05" },
 ];
 
 export type CapabilityItem = {

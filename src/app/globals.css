@@ -2693,7 +2693,7 @@ html[data-theme="light"] .theme-toggle .sun {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1080px) {
   .nav {
     display: none;
   }
@@ -2701,7 +2701,9 @@ html[data-theme="light"] .theme-toggle .sun {
   .menu-btn {
     display: grid;
   }
+}
 
+@media (max-width: 860px) {
   .kbd-btn__label {
     display: none;
   }
